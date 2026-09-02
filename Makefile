@@ -1,4 +1,6 @@
+DefaultRun := @odin run .
+
 run:
-	@odin run .
+	$(DefaultRun)
 
 .PHONY: run all clean
