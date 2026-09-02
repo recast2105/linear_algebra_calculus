@@ -1,8 +1,8 @@
-package Render
+package Engine
 
 TARGET_FPS :: 60
 
-Engine :: struct {
+CoreProcedure :: struct {
 	Start:  proc(),
 	Update: proc(_: f32),
 }
