@@ -22,20 +22,18 @@ DrawGrid :: proc(gridSize: int, windowScreenSize: [2]int, colorGrid: Raylib.Colo
 	}
 }
 
+// TODO: Maybe refactor latter then points calculation
+// * For now it's Okay'is
 DrawGraph :: proc() {
-	// // Horitontal
-	// Raylib.DrawLine(600, 300, 200, 300, Raylib.RED)
-	// // Vertical
-	// Raylib.Drawline()
 
 	x := cast(f32)400
 	y := cast(f32)300
 	size := cast(f32)250
 	thickness := cast(f32)1.5
 
+	// ------------ Horizontal ------------
 	Raylib.DrawLineEx({x, y - size}, {x, y + size}, thickness, Raylib.RED)
-
+	// ------------ Vertical ------------
 	Raylib.DrawLineEx({x - size, y}, {x + size, y}, thickness, Raylib.RED)
-
 
 }
