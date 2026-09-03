@@ -48,7 +48,17 @@ Update :: proc(delta: f32) {
 		Raylib.BeginDrawing()
 		Raylib.ClearBackground(Raylib.RAYWHITE)
 
-		Render.DrawGrid(Render.GRID_SIZE, {cast(int)CoreWindow.width, cast(int)CoreWindow.heigth})
+		// ------------ World Grid ------------
+
+		Render.DrawGrid(
+			Render.WORLD_GRID_SIZE,
+			{cast(int)CoreWindow.width, cast(int)CoreWindow.heigth},
+			Render.WORLD_GRID_COLOR,
+		)
+
+		// ------------ Draw Graph ------------
+
+		Render.DrawGraph()
 
 		Raylib.DrawText(fmt.ctprint("FPS:", Raylib.GetFPS()), 10, 10, 20, Raylib.GREEN)
 		Raylib.EndDrawing()
