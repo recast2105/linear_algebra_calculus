@@ -1,22 +1,17 @@
-package Main
+// ========================================
+// package Main
+// ========================================
 
-// ------------ Buit-in ------------
+package Main
 
 import "core:fmt"
 import Raylib "vendor:raylib"
 
-// ------------ Abstraction ------------
 import Engine "src/engine"
 import Render "src/render"
 import Window "src/window"
-// ------------ Core Engine Parameters ------------
 
-// ------------ Core Engine Constants ------------
-
-// * Tecnicamente não é uma constante, mas o valor não sera alterado
-delta := Raylib.GetFrameTime() // ! Não alterar o valor | declarar outro valor.
-
-// ------------ Core Engine Structs ------------
+delta := Raylib.GetFrameTime()
 
 CoreEngine := Engine.CoreProcedure {
 	Start  = Start,
@@ -45,10 +40,9 @@ Update :: proc(delta: f32) {
 	defer Raylib.CloseWindow()
 
 	for !Raylib.WindowShouldClose() {
+
 		Raylib.BeginDrawing()
 		Raylib.ClearBackground(Raylib.RAYWHITE)
-
-		// ------------ World Grid ------------
 
 		Render.DrawGrid(
 			Render.WORLD_GRID_SIZE,
@@ -56,11 +50,10 @@ Update :: proc(delta: f32) {
 			Render.WORLD_GRID_COLOR,
 		)
 
-		// ------------ Draw Graph ------------
-
-		Render.DrawGraph()
+		Render.DrawGraph(Window.GetCenterWindow(CoreWindow))
 
 		Raylib.DrawText(fmt.ctprint("FPS:", Raylib.GetFPS()), 10, 10, 20, Raylib.GREEN)
+
 		Raylib.EndDrawing()
 	}
 }
