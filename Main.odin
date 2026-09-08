@@ -1,16 +1,16 @@
-// ========================================
-// package Main
-// ========================================
-
 package Main
+
+// ------------ Buit-In Package ------------
 
 import "core:fmt"
 import Raylib "vendor:raylib"
 
+// ------------ Custom Package ------------
+
 import Engine "src/engine"
+import Math "src/math"
 import Render "src/render"
 import Window "src/window"
-
 delta := Raylib.GetFrameTime()
 
 CoreEngine := Engine.CoreProcedure {
@@ -51,6 +51,8 @@ Update :: proc(delta: f32) {
 		)
 
 		Render.DrawGraph(Window.GetCenterWindow(CoreWindow))
+
+		Render.DrawPoint(cast(i32)Math.Affine(2, 2), Window.GetCenterWindow(CoreWindow))
 
 		Raylib.DrawText(fmt.ctprint("FPS:", Raylib.GetFPS()), 10, 10, 20, Raylib.GREEN)
 

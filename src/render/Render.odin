@@ -17,16 +17,15 @@ DrawGrid :: proc(gridSize: int, windowScreenSize: [2]int, colorGrid: Raylib.Colo
 	}
 }
 
-DrawGraph :: proc(center: [2]f32) {
+// Distância entre cada número (Posição Vetorial)
+UNIT_SIZE_DISTANCE :: cast(f32)50
 
+DrawGraph :: proc(center: [2]f32) {
 	x := center.x
 	y := center.y
 
 	size := cast(f32)250
 	thickness := cast(f32)1.5
-
-	// Distância entre cada número
-	unitSize := cast(f32)50
 
 	// ------------ Y Axis ------------
 
@@ -44,7 +43,7 @@ DrawGraph :: proc(center: [2]f32) {
 			continue
 		}
 
-		positionX := x + cast(f32)number * unitSize
+		positionX := x + cast(f32)number * UNIT_SIZE_DISTANCE
 
 		Raylib.DrawText(
 			fmt.ctprint(number),
@@ -64,7 +63,7 @@ DrawGraph :: proc(center: [2]f32) {
 		}
 
 		// Y é invertido na tela
-		positionY := y - cast(f32)number * unitSize
+		positionY := y - cast(f32)number * UNIT_SIZE_DISTANCE
 
 		Raylib.DrawText(
 			fmt.ctprint(number),
@@ -74,4 +73,21 @@ DrawGraph :: proc(center: [2]f32) {
 			Raylib.BLACK,
 		)
 	}
+}
+
+
+DrawPoint :: proc(point: [2]i32, center: [2]f32) {
+	// ! Limite de tela por equanto
+	if (point.x > 5 || point.x < -5 || point.y > 5 || point.y < -5) {
+		return
+	}
+	
+	// Converção
+	// Coordenada matemática -> Coordenada da tela
+	positionX := center.x + cast(f32)point.x * UNIT_SIZE_DISTANCE
+	positionY := center.y - cast(f32)point.y * UNIT_SIZE_DISTANCE
+
+	radius := cast(f32)7
+
+	Raylib.DrawCircle(cast(i32)positionX, cast(i32)positionY, radius, Raylib.GREEN)
 }
