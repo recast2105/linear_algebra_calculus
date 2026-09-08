@@ -76,12 +76,12 @@ DrawGraph :: proc(center: [2]f32) {
 }
 
 
-DrawPoint :: proc(point: [2]i32, center: [2]f32) {
+DrawPoint :: proc(point: [2]f32, center: [2]f32) {
 	// ! Limite de tela por equanto
 	if (point.x > 5 || point.x < -5 || point.y > 5 || point.y < -5) {
 		return
 	}
-	
+
 	// Converção
 	// Coordenada matemática -> Coordenada da tela
 	positionX := center.x + cast(f32)point.x * UNIT_SIZE_DISTANCE

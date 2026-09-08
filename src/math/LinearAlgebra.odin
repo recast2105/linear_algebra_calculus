@@ -10,8 +10,7 @@ package Math
 // O valor da função em x = 0 é f(0) = b.
 // O coeficiente b representa onde a reta corta o eixo Y.
 // O zero da função é o valor de x onde f(x) = 0.
-Affine :: proc(a: f32, b: f32) -> f32 {
-	x := cast(f32)1
+Affine :: proc(a: f32, b: f32, x: f32) -> [2]f32 {
 
 	return (a * x) + b
 }

@@ -52,7 +52,7 @@ Update :: proc(delta: f32) {
 
 		Render.DrawGraph(Window.GetCenterWindow(CoreWindow))
 
-		Render.DrawPoint(cast(i32)Math.Affine(2, 2), Window.GetCenterWindow(CoreWindow))
+		Render.DrawPoint(Math.Affine(2, 2, 1), Window.GetCenterWindow(CoreWindow))
 
 		Raylib.DrawText(fmt.ctprint("FPS:", Raylib.GetFPS()), 10, 10, 20, Raylib.GREEN)
 
