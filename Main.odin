@@ -79,13 +79,13 @@ Update :: proc(delta: f32) {
 		Raylib.DrawRectangle(18, 92, 300, 350, Raylib.RAYWHITE)
 		Raylib.DrawRectangleLines(18, 92, 300, 350, Raylib.LIGHTGRAY)
 		Raylib.DrawText("FUNCAO ATIVA", 34, 108, 14, Raylib.DARKGRAY)
-		if Render.DrawModeButton("Quadratica", 34, 132, 84, selected_graph == .QUADRATIC) {
+		if Render.DrawModeButton("Quadratica", 34, 132, 96, selected_graph == .QUADRATIC) {
 			selected_graph = .QUADRATIC
 		}
-		if Render.DrawModeButton("Linear", 124, 132, 84, selected_graph == .LINEAR) {
+		if Render.DrawModeButton("Linear", 136, 132, 76, selected_graph == .LINEAR) {
 			selected_graph = .LINEAR
 		}
-		if Render.DrawModeButton("Cubica", 214, 132, 84, selected_graph == .CUBIC) {
+		if Render.DrawModeButton("Cubica", 218, 132, 80, selected_graph == .CUBIC) {
 			selected_graph = .CUBIC
 		}
 
