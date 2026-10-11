@@ -15,4 +15,11 @@ build: build-linux
 clean:
 	@rm -f $(ProjectName) $(ProjectName).exe
 
-.PHONY: run build build-linux build-windows clean
+help:
+	@echo "The following are some of the valid target for this Makefile:"
+	@echo "... all (Default build and run)"
+	@echo "... build-linux (Linux build)"
+	@echo "... build-windows (Windows build)"
+	@echo "... clean (Erase the build)"
+
+.PHONY: run build build-linux build-windows clean help
